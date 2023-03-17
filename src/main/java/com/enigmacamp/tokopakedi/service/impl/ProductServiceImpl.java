@@ -3,6 +3,7 @@ package com.enigmacamp.tokopakedi.service.impl;
 import com.enigmacamp.tokopakedi.entity.Product;
 import com.enigmacamp.tokopakedi.repository.ProductRepository;
 import com.enigmacamp.tokopakedi.service.ProductService;
+import com.enigmacamp.tokopakedi.utils.exception.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateProduct(Product product) {
-        return null;
+        if(productRepository.findById(product.getId()).isPresent()){
+            return saveProduct(product);
+        }else {
+            throw new DataNotFoundException("Data with id "+ product.getId() + " is not found");
+        }
     }
 
     @Override
@@ -37,11 +42,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(String id) {
-        return null;
+
+        return productRepository.findById(id).get();
     }
 
     @Override
     public void deleteProduct(String id) {
-
+        productRepository.deleteById(id);
     }
 }
