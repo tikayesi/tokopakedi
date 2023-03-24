@@ -17,11 +17,33 @@ public class PageResponseWrapper<T> {
     private Integer page;
     private Integer size;
 
+    public PageResponseWrapper() {
+    }
+
+    public PageResponseWrapper(List<T> data, Long totalElement, Integer totalPages, Integer page, Integer size) {
+        this.data = data;
+        this.totalElement = totalElement;
+        this.totalPages = totalPages;
+        this.page = page;
+        this.size = size;
+    }
+
     public PageResponseWrapper(Page<T> page) {
         this.data = page.getContent();
         this.totalElement = page.getTotalElements();
         this.totalPages = page.getTotalPages();
         this.page = page.getNumber();
         this.size = page.getSize();
+    }
+
+    @Override
+    public String toString() {
+        return "PageResponseWrapper{" +
+                "data=" + data +
+                ", totalElement=" + totalElement +
+                ", totalPages=" + totalPages +
+                ", page=" + page +
+                ", size=" + size +
+                '}';
     }
 }

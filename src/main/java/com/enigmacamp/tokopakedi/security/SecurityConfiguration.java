@@ -46,7 +46,7 @@ public class SecurityConfiguration {
                         .exceptionHandling().authenticationEntryPoint(authEntryPoint).and()
                         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                         .authorizeRequests()
-                        .antMatchers("/auth/**").permitAll()
+                        .antMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                         .and().addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 

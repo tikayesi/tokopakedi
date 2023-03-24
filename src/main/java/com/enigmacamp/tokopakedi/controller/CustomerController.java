@@ -38,8 +38,8 @@ public class CustomerController {
                                                       @RequestParam(name = "size", defaultValue = "5") Integer size,
                                                       @RequestParam(name = "sort-by", defaultValue = "fullName") String sortBy,
                                                       @RequestParam(name = "direction", defaultValue = "ASC") String direction,
-                                                      @RequestParam(name = "name") String fullName,
-                                                      @RequestParam(name = "address") String address
+                                                      @RequestParam(name = "name", defaultValue = "") String fullName,
+                                                      @RequestParam(name = "address", defaultValue = "") String address
     ){
 
         CustomerSearchDTO customerSearchDTO = new CustomerSearchDTO();

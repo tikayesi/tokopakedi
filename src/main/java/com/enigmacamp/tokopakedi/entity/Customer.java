@@ -1,6 +1,7 @@
 package com.enigmacamp.tokopakedi.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.Date;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
     @Id
     @Column(name = "customer_id")
